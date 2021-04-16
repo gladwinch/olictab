@@ -1,28 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app" class="flex flex-row h-screen">
+		<div class="w-14 hide-sm">
+			<side-bar></side-bar>
+		</div>
+		<div class="flex-auto overflow-y-scroll">
+			<Datatable 
+				title="Customers"
+				endpoint="https://jsonplaceholder.typicode.com/users"
+				points="id,name,email,company,address,website"
+			/>
+		</div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Datatable from './components/DataTable.vue'
+import SideBar from './components/SideBar.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		Datatable,
+		SideBar
+	}
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./assets/css/tailwind.css">
